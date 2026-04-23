@@ -1,0 +1,102 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+// import 'my_flutter_app_icons.dart';
+import 'core/constants/app_colors.dart';
+import 'features/auth/presentation/providers/auth_provider.dart';
+import '../../features/auth/presentation/pages/auth_settings.dart';
+import '../../features/catalog/presentation/pages/dashboard_page.dart';
+import '../../features/cart/presentation/pages/cart_page.dart';
+import '../../features/orders/presentation/pages/order_header_page.dart';
+
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = const [
+    DashboardPage(),
+    CartPage(),
+    OrdersHeaderPage(),
+    AuthSettings(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final auth = context.watch<AuthProvider>();
+
+    Widget appBarTitle;
+
+    switch (_selectedIndex) {
+      case 0: // Dashboard
+        appBarTitle = Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Dashboard', style: TextStyle(fontSize: 18)),
+            Text(
+              'Halo, ${auth.firebaseUser?.displayName ?? 'User'}! Mau belanja apa hari ini?',
+              style: const TextStyle(fontSize: 13),
+            ),
+          ],
+        );
+        break;
+
+      case 1:
+        appBarTitle = const Text('Keranjang Kamu');
+        break;
+
+      case 2:
+        appBarTitle = const Text('History Belanja Kamu');
+        break;
+
+      case 3:
+        appBarTitle = const Text('Halaman Pengaturan');
+        break;
+
+      default:
+        appBarTitle = const Text('App');
+    }
+
+    return Scaffold(
+      appBar: AppBar(title: appBarTitle),
+      body: IndexedStack(index: _selectedIndex, children: _pages),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        selectedItemColor: Colors.black,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag),
+            label: 'Belanja',
+            backgroundColor: AppColors.primary,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Keranjang',
+            backgroundColor: AppColors.primary,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.receipt_long),
+            label: 'Pesanan',
+            backgroundColor: AppColors.primary,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Pengaturan',
+            backgroundColor: AppColors.primary,
+          ),
+        ],
+      ),
+    );
+  }
+}

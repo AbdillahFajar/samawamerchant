@@ -1,0 +1,31 @@
+import "package:flutter/material.dart";
+import "../../../../core/routes/app_router.dart";
+import "../../../../core/services/secure_storage.dart";
+// SplashPage: cek token tersimpan, redirect otomatis
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    _checkAuth(); 
+  }
+
+  Future<void> _checkAuth() async {
+    await Future.delayed(const Duration(seconds: 2)); // Animasi splash
+    if (!mounted) return;
+
+    final token = await SecureStorageService.getToken();
+    final route = token != null ? AppRouter.mainPage : AppRouter.login;
+    Navigator.pushReplacementNamed(context, route);
+  }
+
+  @override
+  Widget build(BuildContext context) =>
+      const Scaffold(body: Center(child: CircularProgressIndicator()));
+}
+
