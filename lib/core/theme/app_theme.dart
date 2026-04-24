@@ -5,6 +5,7 @@ import "../constants/app_colors.dart";
 class AppTheme {
   static ThemeData get light {
     return ThemeData(
+      fontFamily: 'Poppins',
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         primary: AppColors.primaryLight,
@@ -72,6 +73,7 @@ class AppTheme {
 
   static ThemeData get dark {
     return ThemeData(
+      fontFamily: 'Poppins',
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         primary: AppColors.primaryDark,
