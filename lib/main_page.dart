@@ -3,10 +3,11 @@ import 'package:provider/provider.dart';
 // import 'my_flutter_app_icons.dart';
 import 'core/constants/app_colors.dart';
 import 'features/auth/presentation/providers/auth_provider.dart';
-import '../../features/auth/presentation/pages/auth_settings.dart';
-import '../../features/catalog/presentation/pages/dashboard_page.dart';
-import '../../features/cart/presentation/pages/cart_page.dart';
-import '../../features/orders/presentation/pages/order_header_page.dart';
+import 'features/auth/presentation/pages/auth_settings.dart';
+import 'features/catalog/presentation/pages/dashboard_page.dart';
+import 'features/cart/presentation/pages/cart_page.dart';
+import 'features/orders/presentation/pages/order_header_page.dart';
+import  'core/providers/theme_provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -34,8 +35,11 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthProvider>();
+    final themeProvider = context.watch<ThemeProvider>();
+    final isDark = themeProvider.isDark;
 
     Widget appBarTitle;
+    Widget appBarActions = const SizedBox(); //bikin widget untuk actions di appBar dan isi SizedBox kosong sebagai awalnya
 
     switch (_selectedIndex) {
       case 0: // Dashboard
@@ -48,6 +52,31 @@ class _MainPageState extends State<MainPage> {
               style: const TextStyle(fontSize: 13),
             ),
           ],
+        );
+        appBarActions = Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  isDark ? Icons.dark_mode : Icons.light_mode,
+                  size: 20,
+                  color: isDark ? Colors.amber : Colors.grey.shade600,
+                ),
+                Text(
+                  isDark ? 'Mode Gelap' : 'Mode Terang',
+                  style: const TextStyle(
+                    fontSize: 14
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(width: 10),
+            Switch(
+              value: isDark, //Posisi switch ada di mode gelap, karena mode awal aplikasi adalah mode terang dan di ThemeProvider, isDark di-set sebagai false
+              onChanged: (_) => context.read<ThemeProvider>().toggleTheme(), //Panggil fungsi toggleTheme() untuk membalikkan kondisi tema saat switch diubah, dan memicu rebuild aplikasi dengan tema baru
+            ),
+          ]
         );
         break;
 
@@ -68,7 +97,10 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: appBarTitle),
+      appBar: AppBar(
+        title: appBarTitle,
+        actions: [appBarActions], //Karena actions membutuhkan List<Widget>, yaitu beberapa widget sekaligus, pake panggil appBarActions dengan dikurung siku ([])
+        ),
       body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
