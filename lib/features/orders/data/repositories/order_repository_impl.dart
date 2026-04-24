@@ -1,5 +1,5 @@
 import '../../../../core/services/dio_client.dart';
-import '../../domain/order_repository.dart';
+import '../../domain/repositories/order_repository.dart';
 import '../models/order_model.dart';
 
 class OrderRepositoryImpl implements OrderRepository {
