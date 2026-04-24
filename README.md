@@ -1,16 +1,21 @@
-# samawamerchant
+# Samawa Merchant
 
-A new Flutter project.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/24ff1705-2151-4efa-87b3-9ab09a40c8af" alt="Logo Global" width="200"/>
+  <br/>
+  <p>Institut Teknologi dan Bisnis Bina Sarana Global</p>
+</div>
+<div align="center">
+FAKULTAS TEKNOLOGI INFORMASI & KOMUNIKASI 
+<br>
+https://global.ac.id/
+  </div>
 
-## Getting Started
+## Tentang Aplikasi
+Samawa Merchant adalah aplikasi Community-Based Marketplace yang dirancang dengan harapan memberikan kemudahan bagi para pelaku usaha untuk mempromosikan produknya sekaligus menghubungkannya ke pelanggan di lingkungan Perumahan Samawa Village, Kecamatan Sepatan Timur, Kabupaten Tangerang.
 
-This project is a starting point for a Flutter application.
+## Demo Video
+Lihat video demo aplikasi untuk mendapatkan penjelasan dari semua fitur Samawa Merchant
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**[Samawa Merchant Demo Video #1]
+(https://youtu.be/lIS33_5NQ64?si=G05NiZneTvCxuDu1)
