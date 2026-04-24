@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
-import "package:samawamerchant/core/constants/app_colors.dart";
 import "../providers/product_provider.dart";
 import "../widgets/add_button_widget.dart";
 
@@ -128,7 +127,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   Text(
                                     'Rp ${p.price.toStringAsFixed(0)}',
                                     style: const TextStyle(
-                                      color: AppColors.textPrimary,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
