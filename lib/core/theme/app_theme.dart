@@ -9,6 +9,7 @@ class AppTheme {
         seedColor: AppColors.primary,
         primary: AppColors.primaryLight,
         surface: AppColors.lightSurface,
+        onSurface: AppColors.lightTextPrimary,
         brightness: Brightness.light,
         error: AppColors.error,
       ),
@@ -61,7 +62,7 @@ class AppTheme {
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppColors.primaryLight.withValues(alpha: 0.4); //saat ON, warna hijau sedikit gelap dan transparan muncul
+            return AppColors.primaryLight.withValues(alpha: 0.4); //saat ON, warna hijau gelap dan sedikit transaparan muncul
           }
         return Colors.grey.shade300;
         }),
@@ -75,6 +76,7 @@ class AppTheme {
         seedColor: AppColors.primary,
         primary: AppColors.primaryDark,
         surface: AppColors.darkSurface,
+        onSurface: AppColors.darkTextPrimary,
         brightness: Brightness.dark,
         error: AppColors.error,
       ),
@@ -121,13 +123,13 @@ class AppTheme {
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppColors.primaryDark; //saat ON, warna hijau muda muncul
+            return AppColors.primaryDark; //saat ON, warna hijau gelap muncul
           }
         return Colors.grey.shade400; //saat OFF, warna abu-abu
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppColors.primaryDark.withValues(alpha: 0.4); //saat ON, warna hijau sedikit gelap dan transparan muncul
+            return AppColors.primaryDark.withValues(alpha: 0.4); //saat ON, warna hijau sedikit gelap dan sedikit transparan muncul
           }
         return Colors.grey.shade300;
         }),
