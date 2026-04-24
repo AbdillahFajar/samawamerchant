@@ -17,5 +17,4 @@ Samawa Merchant adalah aplikasi Community-Based Marketplace yang dirancang denga
 ## Demo Video
 Lihat video demo aplikasi untuk mendapatkan penjelasan dari semua fitur Samawa Merchant
 
-**[Samawa Merchant Demo Video #1]
-(https://youtu.be/lIS33_5NQ64?si=G05NiZneTvCxuDu1)
+**[Samawa Merchant Demo Video #1](https://youtu.be/lIS33_5NQ64?si=G05NiZneTvCxuDu1)**
