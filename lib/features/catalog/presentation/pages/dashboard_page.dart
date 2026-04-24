@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 import "../providers/product_provider.dart";
 import "../widgets/add_button_widget.dart";
+import "../../../../core/constants/app_colors.dart";
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -23,6 +24,8 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     final product = context.watch<ProductProvider>();
+    final surface = Theme.of(context).colorScheme.surface; //Add warna card
+    final onSurface = Theme.of(context).colorScheme.onSurface; //Add warna isi card
 
     Widget content;
 
@@ -46,7 +49,7 @@ class _DashboardPageState extends State<DashboardPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.error_outline, size: 64, color: Colors.red),
+              const Icon(Icons.error_outline, size: 64, color: AppColors.error),
               const SizedBox(height: 16),
               Text(product.error ?? 'Terjadi kesalahan'),
               const SizedBox(height: 16),
@@ -76,6 +79,7 @@ class _DashboardPageState extends State<DashboardPage> {
               final p = product.products[i];
 
               return Card(
+                color: surface,
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -115,7 +119,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                 children: [
                                   Text(
                                     p.name,
-                                    style: const TextStyle(
+                                    style: TextStyle(
+                                      color: onSurface,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
                                     ),
@@ -126,15 +131,16 @@ class _DashboardPageState extends State<DashboardPage> {
 
                                   Text(
                                     'Rp ${p.price.toStringAsFixed(0)}',
-                                    style: const TextStyle(
-                                      color: Colors.blue,
+                                    style: TextStyle(
+                                      color: onSurface,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                   const SizedBox(height: 8),
 
                                   // Container(
-                                  //   padding: const EdgeInsets.symmetric(
+                                  //   padding: 
+                                  // EdgeInsets.symmetric(
                                   //     horizontal: 8,
                                   //     vertical: 2,
                                   //   ),
@@ -144,7 +150,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                   //   ),
                                   //   child: Text(
                                   //     p.category,
-                                  //     style: const TextStyle(
+                                  //     style: 
+                                  // TextStyle(
                                   //       fontSize: 11,
                                   //       color: Color(0xFF1565C0),
                                   //     ),
@@ -155,7 +162,8 @@ class _DashboardPageState extends State<DashboardPage> {
 
                                   // Text(
                                   //   'Stok: ${p.stock}',
-                                  //   style: const TextStyle(fontSize: 11),
+                                  //   style: 
+                                  //TextStyle(fontSize: 11),
 
                                   AddButton(product: p),//tombol pesan
                                   // ),

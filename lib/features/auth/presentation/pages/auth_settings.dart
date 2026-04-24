@@ -14,6 +14,7 @@ class _AuthSettingsState extends State<AuthSettings> {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthProvider>();
+
     return Center(
       child: ElevatedButton(
         onPressed: () async {
@@ -21,10 +22,9 @@ class _AuthSettingsState extends State<AuthSettings> {
           if (!mounted) return;
           Navigator.pushReplacementNamed(context, AppRouter.login);
         },
-        style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-        child: const Text(
+        child: Text(
           "Logout",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );

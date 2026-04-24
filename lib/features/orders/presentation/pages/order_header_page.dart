@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/constants/app_colors.dart';
 import '../providers/order_provider.dart';
 import '../../../../core/routes/app_router.dart';
 
@@ -25,6 +24,8 @@ class _OrdersHeaderPageState extends State<OrdersHeaderPage> {
   @override
   Widget build(BuildContext context) {
     var order = context.watch<OrderProvider>();
+     final surface = Theme.of(context).colorScheme.surface;
+     final onSurface = Theme.of(context).colorScheme.onSurface;
 
     return Column(
       children: [
@@ -37,13 +38,24 @@ class _OrdersHeaderPageState extends State<OrdersHeaderPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
+                  color: surface,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: ListTile(
                   leading: const Icon(Icons.receipt_long),
-                  title: Text('Rp ${item.totalAmount.toStringAsFixed(0)}'),
-                  subtitle: Text(item.status),
+                  title: Text(
+                    'Rp ${item.totalAmount.toStringAsFixed(0)}',
+                    style: TextStyle(
+                        color: onSurface,
+                      )
+                    ),
+                  subtitle: Text(
+                    item.status,
+                    style: TextStyle(
+                        color: onSurface,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
                   trailing: ElevatedButton(
                     onPressed: () {
                       //Pindah halaman dan kirim id header order ke halmaan order detail
@@ -53,13 +65,9 @@ class _OrdersHeaderPageState extends State<OrdersHeaderPage> {
                         arguments: item.id,
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                    ),
                     child: const Text(
                       'Detail',
                       style: TextStyle(
-                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

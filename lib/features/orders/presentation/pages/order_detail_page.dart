@@ -25,6 +25,8 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
   Widget build(BuildContext context) {
     final provider = context.watch<OrderProvider>();
     final order = provider.selectedOrder;
+     final surface = Theme.of(context).colorScheme.surface;
+     final onSurface = Theme.of(context).colorScheme.onSurface;
 
     if (order == null) {
       return const Scaffold(
@@ -52,18 +54,29 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                   ),
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
+                    color: surface,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: ListTile(
                     leading: const Icon(Icons.receipt),
-                    title: Text(item.productName),
-                    subtitle: Text("Jumlah: ${item.quantity}"),
+                    title: Text(
+                        item.productName,
+                        style: TextStyle(
+                          color: onSurface,
+                        )
+                      ),
+                    subtitle: Text(
+                        "Jumlah: ${item.quantity}",
+                        style: TextStyle(
+                          color: onSurface,
+                        )
+                      ),
                     trailing: Text(
                       "Rp ${item.subtotal.toStringAsFixed(0)}",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15
+                        fontSize: 15,
+                        color: onSurface,
                       ),
                     ),
                   ),

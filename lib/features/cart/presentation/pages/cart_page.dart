@@ -30,6 +30,9 @@ class _CartPageState extends State<CartPage> {
     final cartRead = context.read<CartProvider>();
     final product = context.read<ProductProvider>();
     final order = context.read<OrderProvider>();
+    final surface = Theme.of(context).colorScheme.surface;
+    final onSurface = Theme.of(context).colorScheme.onSurface;
+    
 
     return Column(
       children: [
@@ -43,7 +46,7 @@ class _CartPageState extends State<CartPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
+                  color: surface,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -79,7 +82,7 @@ class _CartPageState extends State<CartPage> {
                           const SizedBox(height: 4),
                           Text(
                             'Rp ${item.product.price.toStringAsFixed(0)}',
-                            style: const TextStyle(color: AppColors.primaryDark),
+                            style: TextStyle(color: onSurface),
                           ),
                         ],
                       ),
@@ -112,8 +115,9 @@ class _CartPageState extends State<CartPage> {
                               ),
                               Text(
                                 item.quantity.toString(),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  color: onSurface,
                                 ),
                               ),
                               IconButton(
@@ -136,6 +140,7 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
         Card(
+          color: surface,
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -143,8 +148,18 @@ class _CartPageState extends State<CartPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Total Harga"),
-                    Text("Rp ${cart.totalPrice.toStringAsFixed(0)}"),
+                    Text(
+                      "Total Harga",
+                      style: TextStyle(
+                        color: onSurface,
+                      )
+                    ),
+                    Text(
+                      "Rp ${cart.totalPrice.toStringAsFixed(0)}",
+                      style: TextStyle(
+                        color: onSurface,
+                      )
+                    ),
                   ],
                 ),
                 SizedBox(height: 5),
@@ -162,13 +177,9 @@ class _CartPageState extends State<CartPage> {
                           builder: (_) => const CheckoutSuccessDialog(),
                         );
                       },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                      ),
                       child: const Text(
                         'Bayar',
                         style: TextStyle(
-                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

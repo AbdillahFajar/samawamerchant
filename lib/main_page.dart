@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'my_flutter_app_icons.dart';
-import 'core/constants/app_colors.dart';
 import 'features/auth/presentation/providers/auth_provider.dart';
 import 'features/auth/presentation/pages/auth_settings.dart';
 import 'features/catalog/presentation/pages/dashboard_page.dart';
@@ -37,6 +36,8 @@ class _MainPageState extends State<MainPage> {
     final auth = context.watch<AuthProvider>();
     final themeProvider = context.watch<ThemeProvider>();
     final isDark = themeProvider.isDark;
+    final surface = Theme.of(context).colorScheme.surface;
+    final primary = Theme.of(context).colorScheme.primary;
 
     Widget appBarTitle;
     Widget appBarActions = const SizedBox(); //bikin widget untuk actions di appBar dan isi SizedBox kosong sebagai awalnya
@@ -105,27 +106,27 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.black,
-        items: const [
+        selectedItemColor: primary,
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag),
             label: 'Belanja',
-            backgroundColor: AppColors.primary,
+            backgroundColor: surface,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
             label: 'Keranjang',
-            backgroundColor: AppColors.primary,
+            backgroundColor: surface,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.receipt_long),
             label: 'Pesanan',
-            backgroundColor: AppColors.primary,
+            backgroundColor: surface,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Pengaturan',
-            backgroundColor: AppColors.primary,
+            backgroundColor: surface,
           ),
         ],
       ),
