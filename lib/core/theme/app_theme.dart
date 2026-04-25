@@ -14,6 +14,7 @@ class AppTheme {
         brightness: Brightness.light,
         error: AppColors.error,
       ),
+      unselectedWidgetColor: AppColors.darkSurface,
       scaffoldBackgroundColor: AppColors.lightBackground,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.primaryLight,
@@ -55,11 +56,17 @@ class AppTheme {
 
       //Bikin tombol switch ke light mode
       switchTheme: SwitchThemeData(
+        thumbIcon: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const Icon(Icons.dark_mode, size: 16, color: Colors.amber); //saat ON, ikon mode gelap muncul
+          }
+          return const Icon(Icons.dark_mode, size: 16, color: Colors.amber); //saat OFF, ikon mode terang muncul
+        }),
         thumbColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
             return AppColors.primaryLight; //saat ON, warna hijau muda muncul
           }
-        return Colors.grey.shade400; //saat OFF, warna abu-abu
+        return AppColors.primaryDark; //saat OFF, warna abu-abu
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
@@ -82,6 +89,7 @@ class AppTheme {
         brightness: Brightness.dark,
         error: AppColors.error,
       ),
+      unselectedWidgetColor: AppColors.lightSurface,
       scaffoldBackgroundColor: AppColors.darkBackground,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.primaryDark,
@@ -123,15 +131,21 @@ class AppTheme {
 
       //Bikin tombol switch ke dark mode
       switchTheme: SwitchThemeData(
+        thumbIcon: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const Icon(Icons.light_mode, size: 16, color: Colors.white); //saat ON, ikon mode gelap muncul
+          }
+          return const Icon(Icons.light_mode, size: 16, color: Colors.white); //saat OFF, ikon mode terang muncul
+        }),
         thumbColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppColors.primaryDark; //saat ON, warna hijau gelap muncul
+            return AppColors.darkSurface; //saat ON, warna hijau gelap muncul
           }
         return Colors.grey.shade400; //saat OFF, warna abu-abu
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppColors.primaryDark.withValues(alpha: 0.4); //saat ON, warna hijau sedikit gelap dan sedikit transparan muncul
+            return AppColors.darkSurface.withValues(alpha: 0.4); //saat ON, warna hijau sedikit gelap dan sedikit transparan muncul
           }
         return Colors.grey.shade300;
         }),
