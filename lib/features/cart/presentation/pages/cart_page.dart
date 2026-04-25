@@ -32,7 +32,7 @@ class _CartPageState extends State<CartPage> {
     final order = context.read<OrderProvider>();
     final surface = Theme.of(context).colorScheme.surface;
     final onSurface = Theme.of(context).colorScheme.onSurface;
-    
+    bool isEmpty = cart.items.isEmpty;
 
     return Column(
       children: [
@@ -55,7 +55,7 @@ class _CartPageState extends State<CartPage> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.network(
-                        "http://192.168.1.10:8081${item.product.imageUrl}",
+                        "http://10.226.173.78:8081${item.product.imageUrl}",
                         width: 60,
                         height: 60,
                         fit: BoxFit.cover,
@@ -98,7 +98,7 @@ class _CartPageState extends State<CartPage> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: surface,
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: AppColors.accent),
                           ),
@@ -148,17 +148,10 @@ class _CartPageState extends State<CartPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Total Harga",
-                      style: TextStyle(
-                        color: onSurface,
-                      )
-                    ),
+                    Text("Total Harga", style: TextStyle(color: onSurface)),
                     Text(
                       "Rp ${cart.totalPrice.toStringAsFixed(0)}",
-                      style: TextStyle(
-                        color: onSurface,
-                      )
+                      style: TextStyle(color: onSurface),
                     ),
                   ],
                 ),
@@ -167,10 +160,22 @@ class _CartPageState extends State<CartPage> {
                   children: [
                     ElevatedButton(
                       onPressed: () async {
+                        if (isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Keranjang masih kosong"),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                          return; // ⛔ STOP di sini
+                        }
+
                         await order.checkout();
                         await cartRead.fetchCart(); // 🔥 BACKEND DIPANGGIL
-                        await product.fetchProducts(); // 🔥 ambil stok terbaru dari DB
-                        await order.fetchOrders(); // 🔥 refresh data order terbaru
+                        await product
+                            .fetchProducts(); // 🔥 ambil stok terbaru dari DB
+                        await order
+                            .fetchOrders(); // 🔥 refresh data order terbaru
                         showDialog(
                           context: context,
                           barrierDismissible: true,
@@ -179,9 +184,7 @@ class _CartPageState extends State<CartPage> {
                       },
                       child: const Text(
                         'Bayar',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                     // SizedBox(width: 12),
