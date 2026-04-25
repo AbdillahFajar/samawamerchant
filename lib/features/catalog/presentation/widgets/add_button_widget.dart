@@ -9,7 +9,7 @@ class AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final surface = Theme.of(context).colorScheme.surface;
+     final primary = Theme.of(context).colorScheme.primary;
      final onSurface = Theme.of(context).colorScheme.onSurface;
 
     return TextButton(
@@ -17,7 +17,7 @@ class AddButton extends StatelessWidget {
         context.read<CartProvider>().addItem(product.id);
       },
       style: TextButton.styleFrom(
-        backgroundColor: surface,
+        backgroundColor: primary,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
       child: Text("Pesan", style: TextStyle(color: onSurface)),
