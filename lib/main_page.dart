@@ -38,6 +38,7 @@ class _MainPageState extends State<MainPage> {
     final isDark = themeProvider.isDark;
     final surface = Theme.of(context).colorScheme.surface;
     final primary = Theme.of(context).colorScheme.primary;
+    final unselectedWidgetColor = Theme.of(context).unselectedWidgetColor;
 
     Widget appBarTitle;
     Widget appBarActions = const SizedBox(); //bikin widget untuk actions di appBar dan isi SizedBox kosong sebagai awalnya
@@ -49,7 +50,7 @@ class _MainPageState extends State<MainPage> {
           children: [
             const Text('Dashboard', style: TextStyle(fontSize: 18)),
             Text(
-              'Halo, ${auth.firebaseUser?.displayName ?? 'User'}! Mau belanja apa hari ini?',
+              'Halo, ${auth.firebaseUser?.displayName ?? 'User'}!',
               style: const TextStyle(fontSize: 13),
             ),
           ],
@@ -57,22 +58,22 @@ class _MainPageState extends State<MainPage> {
         appBarActions = Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                Icon(
-                  isDark ? Icons.dark_mode : Icons.light_mode,
-                  size: 20,
-                  color: isDark ? Colors.amber : Colors.grey.shade600,
-                ),
-                Text(
-                  isDark ? 'Mode Gelap' : 'Mode Terang',
-                  style: const TextStyle(
-                    fontSize: 14
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(width: 10),
+            // Row(
+            //   children: [
+            //     Icon(
+            //       isDark ? Icons.dark_mode : Icons.light_mode,
+            //       size: 20,
+            //       color: isDark ? Colors.amber : Colors.grey.shade600,
+            //     ),
+            //     Text(
+            //       isDark ? 'Mode Gelap' : 'Mode Terang',
+            //       style: const TextStyle(
+            //         fontSize: 14
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // const SizedBox(width: 10),
             Switch(
               value: isDark, //Posisi switch ada di mode gelap, karena mode awal aplikasi adalah mode terang dan di ThemeProvider, isDark di-set sebagai false
               onChanged: (_) => context.read<ThemeProvider>().toggleTheme(), //Panggil fungsi toggleTheme() untuk membalikkan kondisi tema saat switch diubah, dan memicu rebuild aplikasi dengan tema baru
@@ -107,6 +108,7 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         selectedItemColor: primary,
+        unselectedItemColor: unselectedWidgetColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag),
