@@ -58,7 +58,7 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: ListTile(
-                    leading: const Icon(Icons.receipt),
+                    leading: const Icon(Icons.receipt, size: 30),
                     title: Text(
                         item.productName,
                         style: TextStyle(

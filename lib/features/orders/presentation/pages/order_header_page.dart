@@ -42,7 +42,7 @@ class _OrdersHeaderPageState extends State<OrdersHeaderPage> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: ListTile(
-                  leading: const Icon(Icons.receipt_long),
+                  leading: const Icon(Icons.receipt_long, size: 30),
                   title: Text(
                     'Rp ${item.totalAmount.toStringAsFixed(0)}',
                     style: TextStyle(
