@@ -778,9 +778,9 @@ Seluruh tampilan antarmuka aplikasi Samawa Merchant dikelompokkan berdasarkan je
 
 <td align="center">
 
-**Konfirmasi Status Pesanan**
+**Ubah Status Pesanan**
 
-<img src="screenshots/Merchant/dialog_konfirmasi_status_pesanan.jpeg" width="230">
+<img src="screenshots/Merchant/dialog_ubah_status_pesanan.jpeg" width="230">
 
 </td>
 
