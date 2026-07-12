@@ -742,7 +742,7 @@ Seluruh tampilan antarmuka aplikasi Samawa Merchant dikelompokkan berdasarkan je
 
 <td align="center">
 
-**Edit E-Wallet**
+**Edit Transfer Bank/E-Wallet**
 
 <img src="screenshots/Merchant/form_edit_e_wallet.jpeg" width="220">
 
