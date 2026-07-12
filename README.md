@@ -215,7 +215,9 @@ samawamerchanttest
 - payment_methods
 - payment_transactions
 
-<img src="screenshots/erd.png" width="240" alt="ERD">
+<p align="center">
+  <img src="screenshots/erd.png" width="850">
+</p>
 
 ---
 
@@ -450,57 +452,363 @@ android/app/
 
 # Screenshot Aplikasi
 
-## Login
-
-*(Tambahkan screenshot halaman Login)*
+Seluruh tampilan antarmuka aplikasi Samawa Merchant dikelompokkan berdasarkan jenis pengguna, yaitu **Customer**, dan **Merchant**.
 
 ---
 
-## Home / Katalog
+### Splash Screen
 
-*(Tambahkan screenshot halaman Home)*
+<p align="center">
+  <img src="screenshots/User/halaman_splash.jpeg" width="260">
+</p>
 
 ---
 
-## Detail Produk
+### Login
 
-*(Tambahkan screenshot halaman Detail Produk)*
+<table align="center">
+<tr>
+<td align="center">
+
+**Login Email**
+
+<img src="screenshots/User/halaman_login.jpeg" width="260">
+
+</td>
+
+<td align="center">
+
+**Login Google**
+
+<img src="screenshots/User/login_google.jpeg" width="260">
+
+</td>
+</tr>
+</table>
+
+---
+
+### Registrasi
+
+<p align="center">
+  <img src="screenshots/User/halaman_registrasi.jpeg" width="260">
+</p>
+
+---
+
+# Customer
+
+## Dashboard Customer
+
+<p align="center">
+  <img src="screenshots/Customer/halaman_dashboard_customer.jpeg" width="270">
+</p>
+
+---
+
+## Katalog Produk
+
+<table align="center">
+<tr>
+
+<td align="center">
+
+**Detail Produk**
+
+<img src="screenshots/Customer/halaman_detail_produk.jpeg" width="250">
+
+</td>
+
+</tr>
+</table>
+
+---
+
+## Pendaftaran Merchant
+
+<p align="center">
+  <img src="screenshots/Customer/form_daftar_merchant.jpeg" width="270">
+</p>
 
 ---
 
 ## Keranjang
 
-*(Tambahkan screenshot halaman Keranjang)*
+<p align="center">
+  <img src="screenshots/Customer/halaman_keranjang.jpeg" width="270">
+</p>
 
 ---
 
 ## Checkout
 
-*(Tambahkan screenshot halaman Checkout)*
+<table align="center">
+<tr>
+
+<td align="center">
+
+**Checkout Header**
+
+<img src="screenshots/Customer/halaman_checkout_header.jpeg" width="250">
+
+</td>
+
+<td align="center">
+
+**Checkout Detail**
+
+<img src="screenshots/Customer/halaman_checkout_detail.jpeg" width="250">
+
+</td>
+
+</tr>
+</table>
 
 ---
 
-## Riwayat Pesanan Customer
+## Riwayat Pesanan
 
-*(Tambahkan screenshot halaman Pesanan Customer)*
+<table align="center">
+<tr>
+
+<td align="center">
+
+**Daftar Pesanan**
+
+<img src="screenshots/Customer/halaman_order_header.jpeg" width="250">
+
+</td>
+
+<td align="center">
+
+**Detail Pesanan**
+
+<img src="screenshots/Customer/halaman_order_detail.jpeg" width="250">
+
+</td>
+
+</tr>
+</table>
 
 ---
+
+## Pengaturan Akun
+
+<p align="center">
+  <img src="screenshots/Customer/halaman_pengaturan_akun_customer.jpeg" width="270">
+</p>
+
+---
+
+## Notifikasi
+
+<p align="center">
+  <img src="screenshots/Customer/notifikasi_pembaruan_status_pesanan.jpeg" width="270">
+</p>
+
+---
+
+# Merchant
 
 ## Dashboard Merchant
 
-*(Tambahkan screenshot Dashboard Merchant)*
+<p align="center">
+  <img src="screenshots/Merchant/halaman_header_pesanan_merchant.jpeg" width="270">
+</p>
+
+---
+
+## Pengaturan Merchant
+
+<p align="center">
+  <img src="screenshots/Merchant/halaman_pengaturan.jpeg" width="270">
+</p>
 
 ---
 
 ## Kelola Produk
 
-*(Tambahkan screenshot Kelola Produk)*
+<table align="center">
+
+<tr>
+
+<td align="center">
+
+**Daftar Produk**
+
+<img src="screenshots/Merchant/halaman_list_produk.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Tambah Produk**
+
+<img src="screenshots/Merchant/halaman_tambah_produk.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Edit Produk**
+
+<img src="screenshots/Merchant/halaman_edit_produk.jpeg" width="220">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+**Dialog Hapus**
+
+<img src="screenshots/Merchant/dialog_hapus_produk.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Dialog Konfirmasi Bulk Status**
+
+<img src="screenshots/Merchant/dialog_konfirmasi_bulk_status.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Snackbar Bulk Status Disable**
+
+<img src="screenshots/Merchant/snackbar_bulk_status_disable.jpeg" width="220">
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
-## Kelola Pembayaran
+## Kelola Metode Pembayaran
 
-*(Tambahkan screenshot Verifikasi Pembayaran)*
+<table>
+
+<tr>
+
+<td align="center">
+
+**Halaman Metode Pembayaran**
+
+<img src="screenshots/Merchant/halaman_metode_pembayaran.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Cash**
+
+<img src="screenshots/Merchant/form_cash.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Transfer Bank**
+
+<img src="screenshots/Merchant/form_transfer_bank.jpeg" width="220">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+**E-Wallet**
+
+<img src="screenshots/Merchant/form_e_wallet.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**QRIS**
+
+<img src="screenshots/Merchant/form_qris.jpeg" width="220">
+
+</td>
+
+<td align="center">
+
+**Edit E-Wallet**
+
+<img src="screenshots/Merchant/form_edit_e_wallet.jpeg" width="220">
+
+</td>
+
+</tr>
+
+</table>
+
+---
+
+## Kelola Pesanan
+
+<table>
+
+<tr>
+
+<td align="center">
+
+**Detail Pesanan**
+
+<img src="screenshots/Merchant/halaman_detail_pesanan_merchant.jpeg" width="230">
+
+</td>
+
+<td align="center">
+
+**Konfirmasi Kelola Toko**
+
+<img src="screenshots/Merchant/dialog_konfirmasi_kelola_toko.jpeg" width="230">
+
+</td>
+
+<td align="center">
+
+**Konfirmasi Status Pesanan**
+
+<img src="screenshots/Merchant/dialog_konfirmasi_status_pesanan.jpeg" width="230">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+**Ubah Status Pembayaran**
+
+<img src="screenshots/Merchant/dialog_ubah_status_pembayaran.jpeg" width="230">
+
+</td>
+
+<td align="center">
+
+**Notifikasi Pesanan Baru**
+
+<img src="screenshots/Merchant/notifikasi_pesanan_baru.jpeg" width="230">
+
+</td>
+
+<td></td>
+
+</tr>
+
+</table>
 
 ---
 
